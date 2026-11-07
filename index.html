@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة زفاف خالد & هيام | 1 ديسمبر 2026</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Amiri, Aref Ruqaa, Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#F3E5AB',
+                            DEFAULT: '#D4AF37',
+                            dark: '#996515',
+                            accent: '#C5A059'
+                        },
+                        royal: {
+                            DEFAULT: '#0B1D16',
+                            light: '#143327',
+                            cream: '#FAF7F2',
+                            sand: '#F2ECE1'
+                        },
+                        crimson: {
+                            DEFAULT: '#6B141A',
+                            light: '#8E1B23'
+                        }
+                    },
+                    fontFamily: {
+                        amiri: ['Amiri', 'serif'],
+                        ruqaa: ['Aref Ruqaa', 'serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #FAF7F2;
+            color: #1A2421;
+            overflow-x: hidden;
+        }
+
+        /* زينة خلفية ناعمة */
+        .bg-islamic-pattern {
+            background-color: #FAF7F2;
+            background-image: radial-gradient(#D4AF37 0.55px, transparent 0.55px), radial-gradient(#D4AF37 0.55px, #FAF7F2 0.55px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+            background-attachment: fixed;
+        }
+
+        /* تدرج ذهبي للنصوص */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #996515 0%, #D4AF37 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-shimmer-btn {
+            background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #996515 100%);
+            background-size: 200% auto;
+            transition: all 0.4s ease;
+        }
+        .gold-shimmer-btn:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.5);
+        }
+
+        /* إطار ملكي مزدوج */
+        .royal-frame {
+            position: relative;
+            border: 2px solid #D4AF37;
+        }
+        .royal-frame::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        /* حركات ظهور ناعمة عند التمرير */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* تأثير نبض خفيف للقلب */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.16); }
+        }
+        .heart-beat {
+            animation: heartbeat 2.2s infinite ease-in-out;
+        }
+
+        /* تأثير طفو ناعم */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating-element {
+            animation: floatSlow 4.5s ease-in-out infinite;
+        }
+
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF7F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+
+        #sparkles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 15;
+        }
+    </style>
+</head>
+<body class="bg-islamic-pattern relative selection:bg-gold selection:text-white">
+
+    <!-- خلفية جزيئات ذهبية متحركة -->
+    <canvas id="sparkles-canvas"></canvas>
+
+    <!-- نافذة ترحيبية لفتح بطاقة الدعوة (اختيارية لتجربة فخمة) -->
+    <div id="welcome-overlay" class="fixed inset-0 z-50 bg-royal flex flex-col items-center justify-center p-6 text-center transition-opacity duration-1000">
+        <div class="max-w-md w-full bg-royal-light/90 backdrop-blur-md p-8 md:p-12 rounded-3xl royal-frame shadow-2xl text-royal-cream relative overflow-hidden">
+            <!-- زخرفة زاوية -->
+            <div class="text-gold text-4xl mb-4">
+                <i class="fa-solid fa-crown"></i>
+            </div>
+            <p class="font-amiri text-gold-light text-lg md:text-xl mb-3 tracking-wide">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+            <p class="text-sm text-gray-300 mb-6">يسرنا دعوتكم لمشاركتنا فرحة العمر في حفل زفاف</p>
+            
+            <h1 class="font-ruqaa text-5xl md:text-6xl text-gold mb-4 leading-tight">
+                خالد <span class="text-2xl text-gold-light mx-1">&</span> هيام
+            </h1>
+            
+            <div class="w-32 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-6"></div>
+            
+            <p class="font-tajawal text-sm text-gold-light/90 mb-8 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>الثلاثاء، 1 ديسمبر 2026 | 6:30 مساءً</span>
+            </p>
+
+            <button onclick="openInvitation()" class="gold-shimmer-btn text-white font-bold py-4 px-8 rounded-full shadow-lg flex items-center justify-center gap-3 mx-auto w-full text-lg cursor-pointer">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <span>فتح بطاقة الدعوة</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- شريط التنقل العائم -->
+    <nav class="sticky top-0 z-40 bg-royal/95 backdrop-blur-md text-royal-cream border-b border-gold/30 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#hero" class="font-ruqaa text-2xl text-gold flex items-center gap-2">
+                <i class="fa-solid fa-ring text-sm"></i>
+                <span>خالد & هيام</span>
+            </a>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="#couple-words" class="hover:text-gold transition">كلمات للعروسين</a>
+                <a href="#countdown-section" class="hover:text-gold transition">العد التنازلي</a>
+                <a href="#details" class="hover:text-gold transition">الموعد والمكان</a>
+                <a href="#timeline" class="hover:text-gold transition">برنامج الحفل</a>
+                <a href="#no-kids" class="text-amber-300 hover:text-amber-200 transition font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-triangle-exclamation text-xs"></i> تنبيه هام
+                </a>
+                <a href="#guestbook" class="bg-gold text-royal px-4 py-1.5 rounded-full font-bold hover:bg-gold-light transition">أرسل تهنئة</a>
+            </div>
+            <!-- زر صوت مؤثرات احتفالية بسيط -->
+            <button id="chime-btn" onclick="playCelebrationChime()" title="تشغيل نغمة احتفالية" class="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-gold hover:bg-gold hover:text-royal transition">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. القسم الرئيسي (Hero Section) -->
+    <header id="hero" class="relative min-h-screen flex items-center justify-center bg-royal text-royal-cream py-20 px-4 overflow-hidden">
+        <!-- دوائر إضاءة خلفية -->
+        <div class="absolute top-10 right-10 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-4xl w-full mx-auto text-center relative z-10 bg-royal-light/60 backdrop-blur-sm p-8 sm:p-14 md:p-20 rounded-[2.5rem] royal-frame shadow-2xl">
+            <!-- البسملة والآية الكريمة -->
+            <div class="mb-8">
+                <p class="font-amiri text-gold-light text-xl md:text-2xl mb-4">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                <p class="font-amiri text-lg sm:text-xl md:text-2xl text-royal-cream/90 leading-relaxed max-w-2xl mx-auto bg-royal/50 py-4 px-6 rounded-2xl border border-gold/20">
+                    ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾
+                </p>
+            </div>
+
+            <p class="text-gold tracking-widest uppercase text-sm md:text-base font-semibold mb-4">
+                                                 ❤️ ليلة من ليالي العمر❤️
+            </p>
+
+            <!-- أسماء العروسين -->
+            <div class="my-10 relative">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10">
+                    <span class="font-ruqaa text-6xl sm:text-7xl md:text-8xl gold-gradient-text py-2 drop-shadow-lg">خالد</span>
+                    <div class="w-16 h-16 rounded-full bg-gold/15 border border-gold flex items-center justify-center text-gold text-2xl heart-beat shadow-inner">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <span class="font-ruqaa text-6xl sm:text-7xl md:text-8xl gold-gradient-text py-2 drop-shadow-lg">هيام</span>
+                </div>
+            </div>
+
+            <p class="font-amiri text-xl sm:text-2xl text-gray-200 max-w-xl mx-auto leading-relaxed mb-10">
+                حينما يدق القلب معلناً بداية حكاية أبدية، تكتمل فرحتنا بحضوركم وتشريفكم لنا في ليلة زفافنا المباركة.
+            </p>
+
+            <!-- بطاقات سريعة للموعد والمكان -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-10 text-right">
+                <div class="bg-royal/70 border border-gold/30 p-4 rounded-2xl flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gold/20 text-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-regular fa-calendar-days"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400">تاريخ الزفاف</p>
+                        <p class="font-bold text-gold-light text-base">الثلاثاء 2026 / 12 / 1</p>
+                    </div>
+                </div>
+
+                <div class="bg-royal/70 border border-gold/30 p-4 rounded-2xl flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gold/20 text-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400">موعد الاستقبال</p>
+                        <p class="font-bold text-gold-light text-base">الساعة 6:30 مساءً</p>
+                    </div>
+                </div>
+
+                <div class="bg-royal/70 border border-gold/30 p-4 rounded-2xl flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gold/20 text-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400">المكان</p>
+                        <p class="font-bold text-gold-light text-base">قصر العامر - جانب قوس القزاز</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- أزرار سريعة -->
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#guestbook" class="gold-shimmer-btn text-white font-bold px-8 py-4 rounded-full shadow-xl flex items-center gap-2">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                    <span>اكتب تهنئة للعروسين</span>
+                </a>
+                <a href="#no-kids" class="bg-crimson/90 hover:bg-crimson text-white border border-gold/40 font-bold px-7 py-4 rounded-full transition flex items-center gap-2">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>ملاحظة هامة جداً للمدعوين</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- فاصل زخرفي -->
+    <div class="py-8 flex items-center justify-center">
+        <div class="w-24 sm:w-48 h-[1px] bg-gradient-to-l from-gold to-transparent"></div>
+        <div class="mx-4 text-gold text-2xl"><i class="fa-solid fa-spa"></i></div>
+        <div class="w-24 sm:w-48 h-[1px] bg-gradient-to-r from-gold to-transparent"></div>
+    </div>
+
+    <!-- 2. قسم العبارات الجميلة والشعر للعروسين -->
+    <section id="couple-words" class="py-16 px-4 max-w-6xl mx-auto reveal">
+        <div class="text-center mb-14">
+            <span class="text-gold-dark font-semibold text-sm tracking-wider bg-gold/15 px-4 py-1.5 rounded-full">نبض القلوب</span>
+            <h2 class="font-amiri text-4xl md:text-5xl font-bold text-royal mt-4">عبارات في حب خالد و هيام</h2>
+            <p class="text-gray-600 mt-2 max-w-xl mx-auto">كلمات منسوجة من الخيال والودّ لليلة تتوج فيها أجمل قصة حب</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- البطاقة الأولى -->
+            <div class="bg-white p-8 rounded-3xl shadow-xl royal-frame text-center flex flex-col justify-between hover:-translate-y-2 transition duration-500">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-royal text-gold flex items-center justify-center text-2xl mx-auto mb-6 shadow-md">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3 class="font-amiri text-2xl font-bold text-royal mb-4">فارس الحلم وأميرة القلب</h3>
+                    <p class="font-amiri text-lg text-gray-700 leading-loose">
+                        "يا <span class="text-gold-dark font-bold">خالد</span> قد نلتَ المنى بـ <span class="text-gold-dark font-bold">هيام</span>، فكأنها البدر المنير في تمامه، اجتمع النبل والجمال في ليلةٍ يغني لها الفرح وتزدان بها الأيام."
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gold/20 text-gold text-sm font-semibold">
+                    ✦ ليلة العمر ✦
+                </div>
+            </div>
+
+            <!-- البطاقة الوسطى المميزة -->
+            <div class="bg-royal text-royal-cream p-8 rounded-3xl shadow-2xl royal-frame text-center flex flex-col justify-between md:-translate-y-4 hover:-translate-y-6 transition duration-500">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-gold text-royal flex items-center justify-center text-2xl mx-auto mb-6 shadow-md">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="font-amiri text-2xl font-bold text-gold mb-4">أبيات الفرح والوصال</h3>
+                    <div class="font-amiri text-lg text-gold-light/95 leading-loose space-y-2">
+                        <p>طابَ اللقاءُ وغنّى السعدُ في ألقِ</p>
+                        <p>وزُفّتِ الفرحةُ الكبرى إلى الأفقِ</p>
+                        <p>خالدُ يزدانُ بالأفراحِ مبتهجاً</p>
+                        <p>وهيامُ كالبدرِ يزهو ساعةَ الغسقِ</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gold/30 text-gold text-sm font-semibold">
+                    ✦ بارك الله لهما وبارك عليهما ✦
+                </div>
+            </div>
+
+            <!-- البطاقة الثالثة -->
+            <div class="bg-white p-8 rounded-3xl shadow-xl royal-frame text-center flex flex-col justify-between hover:-translate-y-2 transition duration-500">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-royal text-gold flex items-center justify-center text-2xl mx-auto mb-6 shadow-md">
+                        <i class="fa-solid fa-Hands-praying"></i>
+                    </div>
+                    <h3 class="font-amiri text-2xl font-bold text-royal mb-4">دعاءٌ من صميم الفؤاد</h3>
+                    <p class="font-amiri text-lg text-gray-700 leading-loose">
+                        "اللهم اجعل أيام <span class="text-gold-dark font-bold">خالد وهيام</span> سعادةً لا تنقضي، ومودةً لا تنطفي، واجمع بينهما في خير، وارزقهما السكينة والرضا وراحة البال طول العمر."
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gold/20 text-gold text-sm font-semibold">
+                    ✦ مودة ورحمة ✦
+                </div>
+            </div>
+        </div>
+
+        <!-- اقتباس رومانسي عريض -->
+        <div class="mt-12 bg-gradient-to-r from-royal via-royal-light to-royal text-royal-cream p-8 md:p-12 rounded-3xl royal-frame text-center shadow-xl">
+            <i class="fa-solid fa-quote-right text-3xl text-gold/60 mb-4"></i>
+            <p class="font-amiri text-2xl md:text-3xl leading-relaxed max-w-3xl mx-auto text-gold-light">
+                "لم تكن صدفةً عابرة، بل كان قدراً جميلاً كتبه الله ليجتمع قلبُ خالد وقلبُ هيام على عهد الوفاء والمحبة إلى الأبد."
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. قسم العد التنازلي (Countdown Timer) -->
+    <section id="countdown-section" class="py-16 px-4 bg-royal text-royal-cream relative overflow-hidden reveal">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <span class="text-gold text-sm tracking-widest uppercase font-bold">اقترب موعد الفرح</span>
+            <h2 class="font-amiri text-4xl md:text-5xl text-white font-bold mt-2 mb-4">العد التنازلي لليلة الزفاف</h2>
+            <p class="text-gold-light/80 mb-10 text-base md:text-lg">
+                نعدّ الساعات والدقائق بشوقٍ للقائكم يوم <span class="text-gold font-bold">1 ديسمبر 2026</span> الساعة <span class="text-gold font-bold">6:30 مساءً</span>
+            </p>
+
+            <!-- مربعات العداد -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto">
+                <div class="bg-royal-light/90 p-6 rounded-3xl royal-frame shadow-lg">
+                    <span id="days" class="block font-ruqaa text-4xl md:text-6xl text-gold mb-2">00</span>
+                    <span class="text-sm md:text-base text-gray-300 font-medium">يوم</span>
+                </div>
+                <div class="bg-royal-light/90 p-6 rounded-3xl royal-frame shadow-lg">
+                    <span id="hours" class="block font-ruqaa text-4xl md:text-6xl text-gold mb-2">00</span>
+                    <span class="text-sm md:text-base text-gray-300 font-medium">ساعة</span>
+                </div>
+                <div class="bg-royal-light/90 p-6 rounded-3xl royal-frame shadow-lg">
+                    <span id="minutes" class="block font-ruqaa text-4xl md:text-6xl text-gold mb-2">00</span>
+                    <span class="text-sm md:text-base text-gray-300 font-medium">دقيقة</span>
+                </div>
+                <div class="bg-royal-light/90 p-6 rounded-3xl royal-frame shadow-lg">
+                    <span id="seconds" class="block font-ruqaa text-4xl md:text-6xl text-gold mb-2">00</span>
+                    <span class="text-sm md:text-base text-gray-300 font-medium">ثانية</span>
+                </div>
+            </div>
+
+            <div id="wedding-started-msg" class="hidden mt-8 bg-gold/20 border border-gold text-gold-light p-4 rounded-2xl max-w-lg mx-auto font-bold">
+                🎉 حان موعد الزفاف المبارك! دامت الأفراح في دياركم عامرة 🎉
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. تفاصيل الموعد والمكان (Venue & Date Details) -->
+    <section id="details" class="py-20 px-4 max-w-6xl mx-auto reveal">
+        <div class="text-center mb-14">
+            <span class="text-gold-dark font-semibold text-sm bg-gold/15 px-4 py-1.5 rounded-full">العنوان والتفاصيل</span>
+            <h2 class="font-amiri text-4xl md:text-5xl font-bold text-royal mt-4">موعد ومكان الحفل</h2>
+            <p class="text-gray-600 mt-2">نتشرف بحضوركم في الموعد والمكان المحددين أدناه</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <!-- بطاقة الزمان -->
+            <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl royal-frame flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-royal text-gold flex items-center justify-center text-3xl shrink-0">
+                            <i class="fa-regular fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gold-dark font-bold">الزمان المحدد</span>
+                            <h3 class="font-amiri text-3xl font-bold text-royal">يوم الثلاثاء المبارك</h3>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 bg-royal-cream p-6 rounded-2xl border border-gold/30 mb-6">
+                        <div class="flex items-center justify-between border-b border-gold/20 pb-3">
+                            <span class="text-gray-600 font-medium">التاريخ الميلادي:</span>
+                            <span class="font-bold text-royal text-lg">2026 - 12 - 1</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-gold/20 pb-3">
+                            <span class="text-gray-600 font-medium">وقت الحفل:</span>
+                            <span class="font-bold text-royal text-lg">من 6:30 حتى 10:00 مساءً</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 font-medium">الالتزام بالموعد:</span>
+                            <span class="text-gold-dark font-bold text-sm">حضوركم مبكراً على الموعد يبهجنا</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="downloadCalendarInvite()" class="w-full py-4 rounded-2xl bg-royal text-gold font-bold hover:bg-royal-light transition flex items-center justify-center gap-2 shadow-md cursor-pointer">
+                    <i class="fa-regular fa-calendar-plus"></i>
+                    <span>إضافة الموعد إلى تقويم الهاتف</span>
+                </button>
+            </div>
+
+            <!-- بطاقة المكان -->
+            <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl royal-frame flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-royal text-gold flex items-center justify-center text-3xl shrink-0">
+                            <i class="fa-solid fa-Place-of-worship"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gold-dark font-bold">قاعة الاحتفال</span>
+                            <h3 class="font-amiri text-3xl font-bold text-royal">صالة قصر العامر للأفراح</h3>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 bg-royal-cream p-6 rounded-2xl border border-gold/30 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-map-pin text-gold-dark text-xl mt-1"></i>
+                            <div>
+                                <p class="text-sm text-gray-500">العنوان بالتفصيل:</p>
+                                <p class="font-bold text-royal text-lg">جانب قوس القزاز - صالة قصر العامر للأفراح</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 pt-3 border-t border-gold/20">
+                            <i class="fa-solid fa-car-side text-gold-dark text-lg mt-1"></i>
+                            <p class="text-sm text-gray-600">الصالة مجهزة لاستقبال الضيوف الكرام وتتوفر أماكن ركن قريبة في محيط القوس.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. برنامج الحفل والفقرات (Wedding Timeline) -->
+    <section id="timeline" class="py-16 px-4 bg-royal-sand/70 border-y border-gold/20 reveal">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-gold-dark font-semibold text-sm bg-gold/15 px-4 py-1.5 rounded-full">فقرات الليلة</span>
+                <h2 class="font-amiri text-4xl md:text-5xl font-bold text-royal mt-4">برنامج حفل الزفاف</h2>
+                <p class="text-gray-600 mt-2">محطات فرحتنا التي نتشرف بمشاركتكم بها من الساعة 6:30 وحتى 10:00 مساءً</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- محطة 1: 06:30 مساءً -->
+                <div class="bg-white p-6 rounded-3xl royal-frame text-center shadow-md hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-gold/20 text-gold-dark flex items-center justify-center text-xl mx-auto mb-3 font-bold">
+                            <i class="fa-solid fa-door-open"></i>
+                        </div>
+                        <span class="inline-block bg-royal text-gold text-xs font-bold px-3 py-1 rounded-full mb-3">06:30 مساءً</span>
+                        <h4 class="font-amiri text-xl font-bold text-royal mb-2">استقبال الضيوف</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">الترحيب بالحضور والمدعوين الكرام وتقديم الضيافة</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-gold/20 text-[11px] text-gold-dark font-bold">المحطة الأولى</div>
+                </div>
+
+                <!-- محطة 2: 07:00 مساءً -->
+                <div class="bg-white p-6 rounded-3xl royal-frame text-center shadow-md hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-gold/20 text-gold-dark flex items-center justify-center text-xl mx-auto mb-3 font-bold">
+                            <i class="fa-solid fa-music"></i>
+                        </div>
+                        <span class="inline-block bg-royal text-gold text-xs font-bold px-3 py-1 rounded-full mb-3">07:00 مساءً</span>
+                        <h4 class="font-amiri text-xl font-bold text-royal mb-2">فقرات الأغاني والاحتفال</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">انطلاق فقرات الأغاني والأجواء الاحتفالية المبهجة</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-gold/20 text-[11px] text-gold-dark font-bold">المحطة الثانية</div>
+                </div>
+
+                <!-- محطة 3: 09:30 مساءً -->
+                <div class="bg-royal text-royal-cream p-6 rounded-3xl royal-frame text-center shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-gold text-royal flex items-center justify-center text-xl mx-auto mb-3 font-bold">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <span class="inline-block bg-gold text-royal text-xs font-extrabold px-3 py-1 rounded-full mb-3">09:30 مساءً</span>
+                        <h4 class="font-amiri text-xl font-bold text-gold mb-2">دخول وزفة العريس</h4>
+                        <p class="text-xs text-gold-light/90 leading-relaxed">وصول ودخول العريس (خالد) وسط الزفة والأجواء الملكية</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-gold/30 text-[11px] text-gold font-bold">المحطة الثالثة</div>
+                </div>
+
+                <!-- محطة 4: 09:45 مساءً (10 إلا ربع) -->
+                <div class="bg-white p-6 rounded-3xl royal-frame text-center shadow-md hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-gold/20 text-gold-dark flex items-center justify-center text-xl mx-auto mb-3 font-bold">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <span class="inline-block bg-royal text-gold text-xs font-bold px-3 py-1 rounded-full mb-3">09:45 مساءً (10 إلا ربع)</span>
+                        <h4 class="font-amiri text-xl font-bold text-royal mb-2">رقصة العروسين</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">رقصة العريس مع العروس (خالد وهيام) في أجمل لحظات العمر</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-gold/20 text-[11px] text-gold-dark font-bold">المحطة الرابعة</div>
+                </div>
+
+                <!-- محطة 5: 10:00 مساءً -->
+                <div class="bg-white p-6 rounded-3xl royal-frame text-center shadow-md hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-gold/20 text-gold-dark flex items-center justify-center text-xl mx-auto mb-3 font-bold">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                        </div>
+                        <span class="inline-block bg-royal text-gold text-xs font-bold px-3 py-1 rounded-full mb-3">10:00 مساءً</span>
+                        <h4 class="font-amiri text-xl font-bold text-royal mb-2">ختام الحفل</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">التقاط الصور التذكارية وختام السهرة وتوديع العروسين</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-gold/20 text-[11px] text-gold-dark font-bold">المحطة الخامسة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. القسم الحاسم والواضح جداً: ممنوع دخول الأطفال نهائياً (Strict No-Children Policy) -->
+    <section id="no-kids" class="py-20 px-4 max-w-5xl mx-auto reveal">
+        <div class="bg-gradient-to-br from-crimson via-[#4A0D12] to-crimson text-white p-8 sm:p-12 md:p-16 rounded-[2.5rem] royal-frame shadow-2xl relative overflow-hidden">
+            <!-- علامة مائية خلفية -->
+            <div class="absolute -bottom-10 -left-10 text-white/5 text-9xl pointer-events-none">
+                <i class="fa-solid fa-ban"></i>
+            </div>
+
+            <div class="relative z-10 text-center">
+                <!-- أيقونة التنبيه -->
+                <div class="w-20 h-20 rounded-full bg-gold/20 border-2 border-gold text-gold flex items-center justify-center text-4xl mx-auto mb-6 shadow-lg">
+                    <i class="fa-solid fa-child-reaching"></i>
+                    <i class="fa-solid fa-slash absolute text-crimson-light text-5xl"></i>
+                </div>
+
+                <span class="bg-gold text-royal font-extrabold text-xs sm:text-sm px-5 py-1.5 rounded-full uppercase tracking-wider shadow">
+                    ملاحظة هامة وحاسمة جداً لجميع المدعوين
+                </span>
+
+                <h2 class="font-amiri text-3xl sm:text-4xl md:text-5xl font-bold text-gold-light mt-6 mb-6 leading-snug">
+                    جنّة الأطفال منازلهم .. يُمنع اصطحاب الأطفال منعاً باتاً
+                </h2>
+
+                <div class="max-w-3xl mx-auto bg-black/30 backdrop-blur-sm border border-gold/40 p-6 sm:p-8 rounded-3xl space-y-4 text-right sm:text-center leading-relaxed">
+                    <p class="text-lg sm:text-xl text-gray-100 font-medium">
+                        أحبتنا وضيوفنا الكرام، لأننا نودّ أن نقضي معكم ليلةً هادئة ومنظمة تليق بمقامكم، وبناءً على تعليمات إدارة <span class="text-gold font-bold">صالة قصر العامر للأفراح</span> المشددة:
+                    </p>
+
+                    <p class="text-xl sm:text-2xl font-amiri text-gold font-bold py-3 border-y border-gold/30">
+                        "نرجو عدم اصطحاب الأطفال نهائياً تحت أي ظرف، فالدعوة مخصصة للكبار فقط، ونعتذر بشدة ومسبقاً عن عدم السماح بدخول أي طفل عند بوابة الصالة منعاً للإحراج."
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-sm text-gray-200">
+                        <div class="bg-white/10 p-3.5 rounded-2xl flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-gold"></i>
+                            <span>حفاظاً على سلامة أطفالكم</span>
+                        </div>
+                        <div class="bg-white/10 p-3.5 rounded-2xl flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-user-tie text-gold"></i>
+                            <span>أمن البوابة ملتزم بالتعليمات</span>
+                        </div>
+                        <div class="bg-white/10 p-3.5 rounded-2xl flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-heart text-gold"></i>
+                            <span>تعاونكم دليل محبتكم لنا</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-6 text-gold-light/90 text-sm sm:text-base font-medium">
+                    شاكرين لكم تفهمكم الراقي وتعاونكم الكامل لنجعل من زفاف <span class="text-white font-bold">خالد و هيام</span> ليلةً استثنائية لا تُنسى.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. صندوق بعث رسائل التهنئة + جدار التهاني (Interactive Guestbook) -->
+    <section id="guestbook" class="py-20 px-4 max-w-6xl mx-auto reveal">
+        <div class="text-center mb-14">
+            <span class="text-gold-dark font-semibold text-sm bg-gold/15 px-4 py-1.5 rounded-full">سجل الذكريات الخالدة</span>
+            <h2 class="font-amiri text-4xl md:text-5xl font-bold text-royal mt-4">صندوق رسائل التهنئة للعروسين</h2>
+            <p class="text-gray-600 mt-2 max-w-xl mx-auto">اتركوا بصمتكم الجميلة وكلماتكم الصادقة لـ <span class="font-bold text-royal">خالد و هيام</span> لتبقى ذكرى عطرة في قلوبهما</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <!-- نموذج إرسال التهنئة المربوط مع Formspree -->
+            <div class="lg:col-span-5 bg-white p-8 rounded-3xl shadow-xl royal-frame sticky top-20">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gold/20">
+                    <div class="w-12 h-12 rounded-2xl bg-royal text-gold flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-amiri text-2xl font-bold text-royal">أرسل تهنئتك الآن</h3>
+                        <p class="text-xs text-gray-500">تصلك رسالتك مباشرة للعروسين وتظهر في لوحة التهاني</p>
+                    </div>
+                </div>
+
+                <form id="guestbookForm" action="https://formspree.io/f/xnppnywq" method="POST" onsubmit="submitWish(event)" class="space-y-5">
+                    <!-- عنوان الرسالة التي ستصلك على الإيميل من Formspree -->
+                    <input type="hidden" name="_subject" value="تهنئة زفاف جديدة للعروسين خالد وهيام 💍">
+
+                    <div>
+                        <label for="guest-name" class="block text-sm font-bold text-royal mb-2">الاسم الكريم <span class="text-red-600">*</span></label>
+                        <input type="text" id="guest-name" name="الاسم" required placeholder="مثال: أبو محمد العامر / عائلة الأحمد"
+                            class="w-full px-4 py-3.5 rounded-2xl bg-royal-cream border border-gold/40 focus:outline-none focus:border-royal text-royal font-medium transition">
+                    </div>
+
+                    <div>
+                        <label for="guest-relation" class="block text-sm font-bold text-royal mb-2">صلة القرابة أو الصداقة</label>
+                        <select id="guest-relation" name="صلة_القرابة_أو_الصفة"
+                            class="w-full px-4 py-3.5 rounded-2xl bg-royal-cream border border-gold/40 focus:outline-none focus:border-royal text-royal font-medium transition">
+                            <option value="من الأهل والأقارب">من الأهل والأقارب</option>
+                            <option value="صديق العريس خالد">صديق العريس خالد</option>
+                            <option value="صديقة العروس هيام">صديقة العروس هيام</option>
+                            <option value="زميل / محب للعروسين">زميل / محب للعروسين</option>
+                            <option value="ضيف كريم">ضيف كريم</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <label for="guest-message" class="text-sm font-bold text-royal">كلمة التهنئة والدعاء <span class="text-red-600">*</span></label>
+                            <button type="button" onclick="fillSuggestedWish()" class="text-xs text-gold-dark hover:underline font-bold flex items-center gap-1 cursor-pointer">
+                                <i class="fa-solid fa-wand-sparkles"></i> اقتراح عبارة جاهزة
+                            </button>
+                        </div>
+                        <textarea id="guest-message" name="رسالة_التهنئة" rows="4" required placeholder="اكتب أجمل كلمات المباركة والدعوات للعروسين خالد و هيام..."
+                            class="w-full px-4 py-3.5 rounded-2xl bg-royal-cream border border-gold/40 focus:outline-none focus:border-royal text-royal font-medium transition resize-none"></textarea>
+                    </div>
+
+                    <!-- رسالة تأكيد داخلية بدون alert -->
+                    <div id="form-feedback" class="hidden p-4 rounded-2xl text-sm font-bold text-center leading-relaxed"></div>
+
+                    <button type="submit" id="submit-wish-btn" class="w-full gold-shimmer-btn text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 text-lg cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
+                        <i id="submit-btn-icon" class="fa-regular fa-paper-plane"></i>
+                        <span id="submit-btn-text">إرسال بطاقة التهنئة</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- جدار التهاني (Wall of Wishes) -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="flex items-center justify-between bg-royal text-royal-cream px-6 py-4 rounded-2xl border border-gold/40 shadow-md">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-comments text-gold text-xl"></i>
+                        <span class="font-amiri text-xl font-bold">رسائل المهنئين للعروسين</span>
+                    </div>
+                    <span id="wishes-count" class="bg-gold text-royal text-xs font-extrabold px-3 py-1 rounded-full">0 تهنئة</span>
+                </div>
+
+                <!-- حاوية البطاقات -->
+                <div id="wishes-container" class="space-y-4 max-h-[680px] overflow-y-auto pr-1 pl-2">
+                    <!-- يتم تعبئة الرسائل ديناميكياً عبر الجافاسكربت -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. الخاتمة الملكية (Footer) -->
+    <footer class="bg-royal text-royal-cream pt-16 pb-12 px-4 border-t-2 border-gold relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="w-16 h-16 rounded-full bg-gold/15 border border-gold flex items-center justify-center text-gold text-2xl mx-auto mb-6">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+
+            <h2 class="font-ruqaa text-5xl md:text-6xl gold-gradient-text mb-4 py-1">خالد & هيام</h2>
+            <p class="font-amiri text-xl text-gold-light/90 mb-6">
+                وبحضوركم تكتمل البهجة وتزداد ليلتنا بأجمل الذكريات✨
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-gray-300 mb-8">
+                <span class="bg-royal-light px-4 py-2 rounded-full border border-gold/20">
+                    <i class="fa-regular fa-calendar text-gold ml-1"></i> الثلاثاء 2026-12-1
+                </span>
+                <span class="bg-royal-light px-4 py-2 rounded-full border border-gold/20">
+                    <i class="fa-regular fa-clock text-gold ml-1"></i> 6:30 مساءً
+                </span>
+                <span class="bg-royal-light px-4 py-2 rounded-full border border-gold/20">
+                    <i class="fa-solid fa-location-dot text-gold ml-1"></i> قصر العامر للأفراح - جانب قوس القزاز
+                </span>
+                <span class="bg-crimson/80 text-white px-4 py-2 rounded-full border border-gold/30 font-bold">
+                    <i class="fa-solid fa-ban text-gold ml-1"></i> جنة الأطفال منازلهم
+                </span>
+            </div>
+
+            <!-- زر مشاركة أو نسخ رابط الدعوة -->
+            <div class="flex items-center justify-center gap-4 mb-8">
+                <button onclick="copyInvitationSummary()" class="bg-gold/15 hover:bg-gold hover:text-royal text-gold border border-gold/50 px-6 py-2.5 rounded-full text-sm font-bold transition flex items-center gap-2 cursor-pointer">
+                    <i class="fa-regular fa-copy"></i>
+                    <span id="copy-invite-text">نسخ نص الدعوة لمشاركتها عبر واتساب</span>
+                </button>
+            </div>
+
+            <p class="text-xs text-gray-400 border-t border-gold/20 pt-6">
+                صُممت هذه الدعوة الإلكترونية بكل حب بمناسبة زفاف خالد و هيام © 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- الأكواد البرمجية التفاعلية (JavaScript) -->
+    <script>
+        // ============================================================================
+        // إعداد رابط Formspree الخاص بك لاستقبال رسائل التهنئة على إيميلك
+        // كل ما عليك فعله هو استبدال YOUR_FORM_ID بالكود الخاص بك من موقع Formspree
+        // مثال: const FORMSPREE_URL = "https://formspree.io/f/xvgpkqzb";
+        // ============================================================================
+        const FORMSPREE_URL = "https://formspree.io/f/YOUR_FORM_ID";
+
+        // 1. فتح شاشة الترحيب مع نغمة احتفالية هادئة (Web Audio API بدون ملفات خارجية)
+        function openInvitation() {
+            const overlay = document.getElementById('welcome-overlay');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 900);
+            playCelebrationChime();
+        }
+
+        function playCelebrationChime() {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                const ctx = new AudioCtx();
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                notes.forEach((freq, index) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime + index * 0.14);
+
+                    gain.gain.setValueAtTime(0.001, ctx.currentTime + index * 0.14);
+                    gain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + index * 0.14 + 0.04);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + index * 0.14 + 1.1);
+
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+
+                    osc.start(ctx.currentTime + index * 0.14);
+                    osc.stop(ctx.currentTime + index * 0.14 + 1.15);
+                });
+            } catch (e) {
+                // تجاهل في حال عدم دعم المتصفح للصوت التلقائي
+            }
+        }
+
+        // 2. العداد التنازلي لموعد العرس: 2026-12-01 الساعة 6:30 مساءً (18:30)
+        const weddingTargetDate = new Date('2026-12-01T18:30:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = weddingTargetDate - now;
+
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            const msgEl = document.getElementById('wedding-started-msg');
+
+            if (diff <= 0) {
+                daysEl.textContent = '00';
+                hoursEl.textContent = '00';
+                minutesEl.textContent = '00';
+                secondsEl.textContent = '00';
+                msgEl.classList.remove('hidden');
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            daysEl.textContent = String(d).padStart(2, '0');
+            hoursEl.textContent = String(h).padStart(2, '0');
+            minutesEl.textContent = String(m).padStart(2, '0');
+            secondsEl.textContent = String(s).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 3. نظام رسائل التهنئة (Guestbook) مع الحفظ المحلي
+        const STORAGE_KEY = 'khaled_hiam_wedding_wishes_2026';
+
+        const defaultWishes = [
+            {
+                name: 'عائلة النويلاتي الكرام',
+                relation: 'من الأهل والأقارب',
+                message: 'بارك الله لكما وبارك عليكما وجمع بينكما في خير.. ألف مبارك لخالد وهيام، جعل الله بيتكما عامراً بالمودة والسعادة الدائمة.',
+                time: 'تهنئة مثبتة'
+            },
+            {
+                name: 'أبو طارق وأولاده',
+                relation: 'صديق العريس خالد',
+                message: 'ألف مبارك يا غالي يا خالد، تستاهل كل خير وفرح، الله يتمم لكم على خير ويجعل أيامكم كلها أفراح ومسرات.',
+                time: 'منذ قليل'
+            },
+            {
+                name: 'رغد',
+                relation: 'صديقة العروس هيام',
+                message: 'أحلى عروس بالدنيا هيام الغالية! ربي يسعد قلبك مع خالد ويكتب لكم حياة مليئة بالحب والهناء والسكينة.',
+                time: 'منذ قليل'
+            }
+        ];
+
+        function loadWishes() {
+            let saved = [];
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                saved = raw ? JSON.parse(raw) : defaultWishes;
+            } catch (e) {
+                saved = defaultWishes;
+            }
+            renderWishes(saved);
+        }
+
+        function renderWishes(wishesList) {
+            const container = document.getElementById('wishes-container');
+            const countBadge = document.getElementById('wishes-count');
+            container.innerHTML = '';
+            countBadge.textContent = `${wishesList.length} تهنئة`;
+
+            wishesList.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-6 rounded-3xl shadow-md border border-gold/30 hover:border-gold transition';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-3 pb-2 border-b border-gray-100">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-royal text-gold flex items-center justify-center font-bold text-sm">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-royal text-base">${escapeHTML(item.name)}</h4>
+                                <span class="text-xs text-gold-dark font-semibold">${escapeHTML(item.relation)}</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-400 bg-royal-cream px-3 py-1 rounded-full border border-gold/20">${escapeHTML(item.time)}</span>
+                    </div>
+                    <p class="font-amiri text-lg text-gray-700 leading-relaxed pr-2 border-r-2 border-gold">
+                        "${escapeHTML(item.message)}"
+                    </p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function submitWish(e) {
+            e.preventDefault();
+            const form = document.getElementById('guestbookForm');
+            const nameInput = document.getElementById('guest-name');
+            const relationInput = document.getElementById('guest-relation');
+            const messageInput = document.getElementById('guest-message');
+            const feedback = document.getElementById('form-feedback');
+            const submitBtn = document.getElementById('submit-wish-btn');
+            const submitBtnIcon = document.getElementById('submit-btn-icon');
+            const submitBtnText = document.getElementById('submit-btn-text');
+
+            const name = nameInput.value.trim();
+            const relation = relationInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!name || !message) return;
+
+            // تفعيل حالة التحميل على الزر أثناء الإرسال
+            submitBtn.disabled = true;
+            submitBtnIcon.className = 'fa-solid fa-circle-notch fa-spin';
+            submitBtnText.textContent = 'جاري إرسال التهنئة...';
+            feedback.classList.add('hidden');
+
+            // تحديد الرابط من المتغير العلوي أو من خاصية action في الفورم
+            const endpoint = (FORMSPREE_URL && !FORMSPREE_URL.includes('YOUR_FORM_ID'))
+                ? FORMSPREE_URL
+                : form.getAttribute('action');
+
+            let sentToFormspree = false;
+            let isPlaceholderId = endpoint.includes('YOUR_FORM_ID');
+
+            if (!isPlaceholderId) {
+                try {
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            _subject: 'تهنئة زفاف جديدة للعروسين خالد وهيام 💍',
+                            الاسم: name,
+                            صلة_القرابة_أو_الصفة: relation,
+                            رسالة_التهنئة: message,
+                            تاريخ_الإرسال: new Date().toLocaleString('ar-SY')
+                        })
+                    });
+
+                    if (response.ok) {
+                        sentToFormspree = true;
+                    } else {
+                        throw new Error('Formspree response not ok');
+                    }
+                } catch (err) {
+                    // في حال حدوث خطأ في الشبكة نعرض تنبيهاً لطيفاً للضيف
+                    submitBtn.disabled = false;
+                    submitBtnIcon.className = 'fa-regular fa-paper-plane';
+                    submitBtnText.textContent = 'إرسال بطاقة التهنئة';
+
+                    feedback.textContent = '⚠️ تعذر الاتصال بالخادم حالياً، يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.';
+                    feedback.className = 'p-4 rounded-2xl text-sm font-bold text-center bg-crimson text-white border border-gold block';
+                    return;
+                }
+            }
+
+            // إضافة التهنئة إلى لوحة التهاني في الصفحة
+            let wishes = [];
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                wishes = raw ? JSON.parse(raw) : [...defaultWishes];
+            } catch (err) {
+                wishes = [...defaultWishes];
+            }
+
+            const newWish = {
+                name,
+                relation,
+                message,
+                time: 'الآن'
+            };
+
+            wishes.unshift(newWish);
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(wishes));
+            } catch (err) {}
+
+            renderWishes(wishes);
+            playCelebrationChime();
+
+            // إعادة الزر لحالته الطبيعية وتفريغ الحقول
+            submitBtn.disabled = false;
+            submitBtnIcon.className = 'fa-regular fa-paper-plane';
+            submitBtnText.textContent = 'إرسال بطاقة التهنئة';
+            nameInput.value = '';
+            messageInput.value = '';
+
+            if (sentToFormspree) {
+                feedback.textContent = '💌 تم إرسال تهنئتك إلى خالد وهيام بنجاح! شكراً لمشاركتكم فرحتنا ✨';
+                feedback.className = 'p-4 rounded-2xl text-sm font-bold text-center bg-emerald-900 text-gold-light border border-gold block';
+            } else {
+                feedback.innerHTML = '✨ تم عرض التهنئة في اللوحة بنجاح! <br><span class="text-xs font-normal text-gold-light/90">(ملاحظة لصاحب الموقع: ضع رابط Formspree الخاص بك مكان YOUR_FORM_ID لتصلك الرسائل على بريدك)</span>';
+                feedback.className = 'p-4 rounded-2xl text-sm font-bold text-center bg-emerald-900 text-gold-light border border-gold block';
+            }
+
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 6000);
+        }
+
+        // اقتراح عبارات تهنئة جاهزة عند الضغط على الزر
+        const suggestedQuotes = [
+            'بارك الله لكما وبارك عليكما وجمع بينكما في خير، ألف مبارك للعروسين خالد و هيام ودامت دياركم عامرة بالأفراح.',
+            'أجمل التهاني والتبريكات للعروسين خالد و هيام، نسأل الله أن يجعل حياتكما مليئة بالسعادة والرضا والمودة الدائمة.',
+            'فرحتكم اليوم هي فرحة لقلوبنا جميعاً، ألف مبارك الزفاف السعيد لخالد وهيام وعقبال العمر كله في هناء وسرور.',
+            'اللهم طوق قلبي خالد و هيام بالسعادة الأبدية، واجعل أيامهما القادمة أجمل مما مضى، ألف مبارك.'
+        ];
+        let quoteIdx = 0;
+
+        function fillSuggestedWish() {
+            const msgBox = document.getElementById('guest-message');
+            msgBox.value = suggestedQuotes[quoteIdx % suggestedQuotes.length];
+            quoteIdx++;
+        }
+
+        function escapeHTML(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // 4. نسخ نص الدعوة لمشاركته على الواتساب
+        function copyInvitationSummary() {
+            const textToCopy = `✨ دعوة زفاف مباركة ✨
+نتشرف بدعوتكم لحضور حفل زفاف العروسين:
+💍 خالد & هيام 💍
+📅 التاريخ: الثلاثاء 2026-12-1
+🕡 الوقت: الساعة 6:30 مساءً
+📍 المكان: صالة قصر العامر للأفراح - جانب قوس القزاز
+⚠️ ملاحظة هامة جداً: جنة الأطفال منازلهم، يُمنع اصطحاب الأطفال نهائياً والدعوة خاصة للكبار فقط.`;
+
+            const tempArea = document.createElement('textarea');
+            tempArea.value = textToCopy;
+            document.body.appendChild(tempArea);
+            tempArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempArea);
+
+            const btnText = document.getElementById('copy-invite-text');
+            btnText.textContent = 'تم نسخ نص الدعوة بنجاح! ✓';
+            setTimeout(() => {
+                btnText.textContent = 'نسخ نص الدعوة لمشاركتها عبر واتساب';
+            }, 3000);
+        }
+
+        // 5. تحميل ملف التقويم (.ics)
+        function downloadCalendarInvite() {
+            const icsContent = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'BEGIN:VEVENT',
+                'SUMMARY:حفل زفاف خالد و هيام',
+                'DTSTART:20261201T183000',
+                'DTEND:20261201T220000',
+                'LOCATION:صالة قصر العامر للأفراح - جانب قوس القزاز',
+                'DESCRIPTION:حفل زفاف خالد و هيام (من 6:30 حتى 10:00 مساءً) - ملاحظة هامة: جنة الأطفال منازلهم ويمنع اصطحاب الأطفال نهائياً.',
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\n');
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'khaled-hiam-wedding.ics';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // 6. تفعيل حركات الظهور عند التمرير + خلفية الجزيئات الذهبية
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            reveals.forEach(el => observer.observe(el));
+        }
+
+        function initSparklesCanvas() {
+            const canvas = document.getElementById('sparkles-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height, particles;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            function createParticles() {
+                particles = [];
+                const count = Math.min(35, Math.floor(window.innerWidth / 35));
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        r: Math.random() * 2.2 + 0.8,
+                        vy: Math.random() * 0.4 + 0.15,
+                        vx: (Math.random() - 0.5) * 0.3,
+                        alpha: Math.random() * 0.5 + 0.2
+                    });
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => {
+                    p.y -= p.vy;
+                    p.x += p.vx;
+                    if (p.y < 0) p.y = height;
+                    if (p.x < 0) p.x = width;
+                    if (p.x > width) p.x = 0;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', () => {
+                resize();
+                createParticles();
+            });
+
+            resize();
+            createParticles();
+            animate();
+        }
+
+        window.onload = function () {
+            loadWishes();
+            initScrollReveal();
+            initSparklesCanvas();
+        };
+    </script>
+</body>
+</html>
